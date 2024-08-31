@@ -64,6 +64,9 @@ return {
 
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+        opts.desc = "Signature Help"
+        keymap.set("i", "<C-h>", function () vim.lsp.buf.signature_help() end, opts)
       end,
     })
 
@@ -85,35 +88,6 @@ return {
           capabilities = capabilities,
         })
       end,
-      ["svelte"] = function()
-        -- configure svelte server
-        lspconfig["svelte"].setup({
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              pattern = { "*.js", "*.ts" },
-              callback = function(ctx)
-                -- Here use ctx.match instead of ctx.file
-                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-              end,
-            })
-          end,
-        })
-      end,
-      ["graphql"] = function()
-        -- configure graphql language server
-        lspconfig["graphql"].setup({
-          capabilities = capabilities,
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-        })
-      end,
-      ["emmet_ls"] = function()
-        -- configure emmet language server
-        lspconfig["emmet_ls"].setup({
-          capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-        })
-      end,
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
@@ -128,6 +102,28 @@ return {
                 callSnippet = "Replace",
               },
             },
+          },
+        })
+      end,
+      ["clangd"] = function()
+        lspconfig["clangd"].setup({
+          capabilities = capabilities,
+          cmd = {
+            "clangd",
+            "--all-scopes-completion",
+            "--background-index",
+            "--clang-tidy",
+            "--completion-parse=always",
+            "--completion-style=bundled",
+            "--cross-file-rename",
+            "--debug-origin",
+            "--enable-config", -- clangd 11+ supports reading from .clangd configuration file
+            "--fallback-style=Qt",
+            "--folding-ranges",
+            "--function-arg-placeholders",
+            "--header-insertion=iwyu",
+            "--pch-storage=memory", -- could also be disk
+            "--suggest-missing-includes",
           },
         })
       end,
