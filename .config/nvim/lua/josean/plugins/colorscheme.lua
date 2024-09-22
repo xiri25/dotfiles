@@ -85,4 +85,8 @@ return {
             )
     end,
     opts = ... },
+    { "folke/tokyonight.nvim", priority = 1000,},
+    { "rebelot/kanagawa.nvim" },
+    { "catppuccin/nvim", name = "catppuccin", lazy = false },
+    { "rose-pine/neovim", name = "rose-pine" },
 }
