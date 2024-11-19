@@ -37,8 +37,6 @@ return {
     mason_tool_installer.setup({
       ensure_installed = {
         "stylua", -- lua formatter
-        "pylint",
-        "eslint_d",
       },
     })
   end,
