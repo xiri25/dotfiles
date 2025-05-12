@@ -1,0 +1,11 @@
+[window]
+    dimensions = { columns = 120, lines = 40 }
+    decorations_theme_variant = "Dark"
+
+[keyboard]
+    bindings = [
+        { key = "Enter", mods = "Shift", action = "CreateNewWindow" },
+    ]
+
+[font]
+    size = 11
