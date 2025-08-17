@@ -89,4 +89,5 @@ return {
     { "rebelot/kanagawa.nvim" },
     { "catppuccin/nvim", name = "catppuccin", lazy = false },
     { "rose-pine/neovim", name = "rose-pine" },
+    { "vague2k/vague.nvim", name = "vague" },
 }
