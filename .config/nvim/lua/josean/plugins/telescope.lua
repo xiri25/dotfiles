@@ -46,5 +46,8 @@ return {
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+
+    -- TODO: Salta un error la primera que lo uso
+    keymap.set("n", "<leader>fd", "<cmd>Telescope lsp_document_symbols bfrnr=0<cr>", { desc = "Find LSP document symbols" })
   end,
 }
