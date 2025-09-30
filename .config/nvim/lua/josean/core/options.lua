@@ -38,3 +38,5 @@ opt.scrolloff = 10
 
 opt.spell = false -- set spell / set nospell
 opt.spelllang = {"en", "es"}
+
+opt.winborder='rounded'
