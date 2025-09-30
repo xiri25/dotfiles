@@ -26,4 +26,4 @@ require("lazy").setup({ { import = "josean.plugins" }, { import = "josean.plugin
 })
 
 vim.diagnostic.config({ virtual_text = true })
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme vague")
