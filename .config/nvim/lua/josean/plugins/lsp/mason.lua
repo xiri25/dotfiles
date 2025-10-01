@@ -31,6 +31,7 @@ return {
         "lua_ls",
         "zls",
         "texlab",
+        "pylsp"
       },
     })
 
