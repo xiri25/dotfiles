@@ -1,9 +1,7 @@
-local util = require 'lspconfig.util'
-
 local function client_with_fn(fn)
   return function()
     local bufnr = vim.api.nvim_get_current_buf()
-    local client = util.get_active_client_by_name(bufnr, 'texlab')
+    local client = vim.lsp.util.get_active_client_by_name(bufnr, 'texlab')
     if not client then
       return vim.notify(('texlab client not found in bufnr %d'):format(bufnr), vim.log.levels.ERROR)
     end
@@ -159,7 +157,7 @@ return {
   default_config = {
     cmd = { 'texlab' },
     filetypes = { 'tex', 'plaintex', 'bib' },
-    root_dir = util.root_pattern('.git', '.latexmkrc', '.texlabroot', 'texlabroot', 'Tectonic.toml'),
+    root_dir = {'.git', '.latexmkrc', '.texlabroot', 'texlabroot', 'Tectonic.toml'},
     single_file_support = true,
     settings = {
       texlab = {
