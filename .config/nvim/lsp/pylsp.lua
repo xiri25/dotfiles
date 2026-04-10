@@ -13,7 +13,12 @@ return {
     pylsp = {
       plugins = {
         pycodestyle = {
-          ignore = {},
+          ignore = {
+                        'E261',
+                        'E302',
+                        'E305', -- Expected 2 lines after definition...
+                        'E241', -- multiple spaces after ','
+                    },
           maxLineLength = 120 -- XD
         }
       }

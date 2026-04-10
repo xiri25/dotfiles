@@ -31,7 +31,10 @@ return {
         "lua_ls",
         "zls",
         "texlab",
-        "pylsp"
+        "pylsp",
+        -- "ansiblels",
+        -- "asm_lsp",
+        "bashls"
       },
     })
 
